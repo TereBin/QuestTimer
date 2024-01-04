@@ -1,0 +1,34 @@
+* fix
+Title : 크로키 1
+description : 1번 크로키 부가 설명
+timer : 10
+Title : 크로키 2
+description : 2번 크로키 부가 설명
+timer : 10
+Title : 크로키 3
+description : 3번 크로키 부가 설명
+timer : 10
+
+* flex
+Title : 커미션 1
+description : 
+timer : 10
+Title : 커미션 2
+description : 2번 커미션 부가 설명
+timer : 10
+Title : 커미션 3
+description : 3번 커미션 부가 설명
+timer : 10
+Title : 인체연습 1
+description : 1번 인체연습 부가 설명
+timer : 10
+Title : 인체연습 2
+description : 2번 인체연습 부가 설명
+timer : 10
+Title : 인체연습 3
+description : 3번 인체연습 부가 설명
+timer : 10
+
+* repeat
+30
+10
