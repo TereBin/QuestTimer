@@ -97,7 +97,7 @@ def repeat_timer(timer: Timer):
 
 
 class RepeatTimer:
-    def __init__(self, target1=0, target2=0):
+    def __init__(self, target1=1800, target2=600):
         self.start_time = None
         self.target1 = target1
         self.target2 = target2
@@ -255,6 +255,7 @@ def select_quest():
     quest_list = quest_text.split('\n')
     quest_list.remove('')
     quest_list.remove('')
+    print(quest_list)
     for i in quest_list:
         if i == "* fix":
             mode = 0
@@ -263,21 +264,23 @@ def select_quest():
         elif i == "* repeat":
             mode = 2
         elif mode == 0:
-            if i[0] == 'T':  # Title
+            if i[:5] == 'Title':  # Title
                 fix_list.append([])
                 fix_list[-1].append(i[8:])
-            elif i[0] == 'd':  # description
-                fix_list[-1].append(i[13:])
-            elif i[0] == 't':  # timer
-                fix_list[-1].append(i[7:])
+            elif i[:11] == 'description':  # description
+                fix_list[-1].append(i[14:])
+                fix_list[-1][1] = fix_list[-1][1].replace(":", "\n")
+            elif i[:5] == 'timer':  # timer
+                fix_list[-1].append(i[8:])
         elif mode == 1:
-            if i[0] == 'T':  # Title
+            if i[:5] == 'Title':  # Title
                 flex_list.append([])
                 flex_list[-1].append(i[8:])
-            elif i[0] == 'd':  # description
-                flex_list[-1].append(i[13:])
-            elif i[0] == 't':  # timer
-                flex_list[-1].append(i[7:])
+            elif i[:11] == 'description':  # description
+                flex_list[-1].append(i[14:])
+                flex_list[-1][1] = flex_list[-1][1].replace(":", "\n")
+            elif i[:5] == 'timer':  # timer
+                flex_list[-1].append(i[8:])
         elif mode == 2:
             if timer4.target1 == 0:
                 timer4.target1 = int(i) * 60
