@@ -36,7 +36,7 @@ class Timer:
         return (self.target * 60) - cur_time
 
     def check(self):
-        if self.time_left() == 0:
+        if self.time_left() < 0:
             return True
         else:
             return False
@@ -138,7 +138,7 @@ def check_repeat(timer: RepeatTimer, target: int):
     global solve
     if timer.is_running:
         run_time = int((datetime.now() - timer.start_time).total_seconds())
-        if target == run_time:  # finished
+        if target < run_time:  # finished
             winsound.PlaySound("alarm.wav", winsound.SND_FILENAME | winsound.SND_ASYNC)
             timer.start_time = datetime.now()
             if timer.state == 1:
@@ -302,6 +302,30 @@ def select_quest():
         timer3.target = int(flex_choice[1][2])
 
 
+def reset_quest():
+    timedisplay0.set("No timer finished")
+    timedisplay1.set("Not Running")
+    timedisplay2.set("Not Running")
+    timedisplay3.set("Not Running")
+    timedisplay4.set("Not running")
+    titledisplay1.set("quest #1")
+    subtitledisplay1.set("quest #1")
+    titledisplay2.set("quest #2")
+    subtitledisplay2.set("quest #2")
+    titledisplay3.set("quest #3")
+    subtitledisplay3.set("quest #3")
+
+    timer1.reset()
+    timer2.reset()
+    timer3.reset()
+    timer4.reset()
+    stopwatch1.reset()
+    stopwatch2.reset()
+    stopwatch3.reset()
+
+    select_quest()
+
+
 # main window
 window = Tk()
 window.title("Quest")
@@ -311,7 +335,7 @@ window.resizable(False, False)
 # menu
 menubar = Menu(window)
 menu1 = Menu(menubar, tearoff=0)
-menu1.add_command(label="Reset Quest", command=select_quest)
+menu1.add_command(label="Reset Quest", command=reset_quest)
 menu1.add_command(label="Exit", command=window.quit)
 menubar.add_cascade(label="File", menu=menu1)
 
