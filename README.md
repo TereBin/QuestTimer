@@ -22,3 +22,5 @@ timer :
 Title은 각 목표의 이름을,  
 description은 각 목표의 세부적인 설명을,  
 timer는 각 목표에 설정하는 시간을 설정할 수 있습니다.  
+
+description에 : 를 사용하면 줄바꿈으로 인식합니다
